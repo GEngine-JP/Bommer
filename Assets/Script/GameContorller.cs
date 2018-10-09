@@ -96,7 +96,7 @@ public class GameContorller : MonoBehaviour {
 		if (gamePlayer == null) {
 			gamePlayer = Instantiate (player, new Vector2 (-(xitm + 1), yitm + 1), Quaternion.identity) as GameObject;
 			//初始化player属性
-			gamePlayer.GetComponent<PlayerController> ().initPlayer (4, 3 , 2 , 1);
+			gamePlayer.GetComponent<PlayerController> ().initPlayer (8, 3 , 2 , 1);
 		} else {
 			gamePlayer.transform.position = new Vector2 (-(xitm + 1), yitm + 1);
 		}

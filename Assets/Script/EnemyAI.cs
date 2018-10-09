@@ -49,8 +49,9 @@ public class EnemyAI : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-        if (!other.CompareTag("Boom")) {
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (!other.collider.CompareTag("Boom")) {
             //复位
             this.transform.position = new Vector2(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
             if (moveingID == 0) {
@@ -62,12 +63,18 @@ public class EnemyAI : MonoBehaviour {
             } else if (moveingID == 3) {
                 randomMove(new int[] { 1, 2, 0 });
             }
-        } else if (other.CompareTag("Boom")) {
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Boom"))
+        {
             UIController.enemyCount -= 1;
             if (UIController.enemyCount < 0)
                 UIController.enemyCount = 0;
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GameContorller>().enemyCount -= 1;
             Destroy(this.gameObject);
         }
-	}
+    }
 }

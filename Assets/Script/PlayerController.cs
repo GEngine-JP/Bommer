@@ -67,10 +67,17 @@ public class PlayerController : MonoBehaviour {
 				//游戏通关
 				GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<GameContorller> ().StartGame();
 			}
-		}else if(other.gameObject.CompareTag ("ENEMY")){
-			playerBUFF (0 , -1);
 		}
 	}
+
+    //2018-10-9 新增
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("ENEMY"))
+        {
+            playerBUFF(0, -1);
+        }
+    }
 
     //主角初始化
     public void initPlayer(float speedValue, int HPValue, int bombCDmaxValue, int bombscope){
