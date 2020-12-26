@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using Script.Controller;
+using Script.Go;
 using UnityEngine;
 using UnityEngine.Serialization;
 

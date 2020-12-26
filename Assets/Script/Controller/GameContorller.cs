@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Script
+namespace Script.Controller
 {
     /// <summary>
     /// 作者: Foldcc

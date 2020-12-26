@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Script.Controller;
+using UnityEngine;
 
 namespace Script
 {
