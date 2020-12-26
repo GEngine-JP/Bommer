@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Script
+namespace Script.Controller
 {
     /// <summary>
     /// 作者: Foldcc
@@ -36,8 +36,8 @@ namespace Script
             //清空list数据
             SuperWallPosList.Clear();
             posList.Clear();
-            this.xitm = x;
-            this.yitm = y;
+            xitm = x;
+            yitm = y;
 
             DestroyMap();
             Border();

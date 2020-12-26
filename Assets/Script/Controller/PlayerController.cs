@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using Script.Controller;
 using Script.Go;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Script
+namespace Script.Controller
 {
     /// <summary>
     /// 作者: Foldcc

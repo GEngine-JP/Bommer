@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Script.Controller;
 using UnityEngine;
 
-namespace Script
+namespace Script.Go
 {
     /// <summary>
     /// 作者: Foldcc

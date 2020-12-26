@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Script.Controller;
+using UnityEngine;
 
-namespace Script
+namespace Script.Go
 {
     /// <summary>
     /// 作者: Foldcc
@@ -16,7 +17,7 @@ namespace Script
             Destroy(gameObject, 0.5f);
         }
 
-        void OnTriggerStay2D(Collider2D other)
+        private void OnTriggerStay2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {

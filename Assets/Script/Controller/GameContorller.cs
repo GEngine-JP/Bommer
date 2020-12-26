@@ -1,6 +1,6 @@
 ﻿using System.Collections;
+using Script.config;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Script.Controller
 {
@@ -12,7 +12,6 @@ namespace Script.Controller
     public class GameContorller : MonoBehaviour
     {
         // 仅仅用于测试
-        public InputField[] test;
 
         public GameObject player;
 
@@ -33,7 +32,7 @@ namespace Script.Controller
             Application.Quit();
         }
 
-        void Start()
+        private void Start()
         {
             InitGame();
             GetComponent<UIController>().StartViewWithIndex(0);
@@ -64,7 +63,7 @@ namespace Script.Controller
             FollowPlayer.yitm = yitm;
 
             //x表示地图所有空位的百分比 0-1之间 如：0.2 表示 取整个地图20%的空格子
-            float x = (0.3f + (levelCount * 0.07f));
+            var x = (0.3f + (levelCount * 0.07f));
             if (x > 0.7f)
             {
                 x = 0.7f;
@@ -107,7 +106,8 @@ namespace Script.Controller
             {
                 gamePlayer = Instantiate(player, new Vector2(-(xitm + 1), yitm + 1), Quaternion.identity);
                 //初始化player属性
-                gamePlayer.GetComponent<PlayerController>().InitPlayer(20, 3, 2, 1);
+                gamePlayer.GetComponent<PlayerController>().InitPlayer(GameConfig.PlayerSpeed, GameConfig.PlayerHp,
+                    GameConfig.BoomCd, GameConfig.BoomPower);
             }
             else
             {
@@ -155,12 +155,10 @@ namespace Script.Controller
             {
                 yield return new WaitForSeconds(1);
                 UIController.gameTime--;
-                if (UIController.gameTime <= 0)
-                {
-                    //游戏结束
-                    GameOver();
-                    break;
-                }
+                if (UIController.gameTime > 0) continue;
+                //游戏结束
+                GameOver();
+                break;
             }
         }
     }

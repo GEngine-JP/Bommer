@@ -2,7 +2,7 @@
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Script
+namespace Script.Controller
 {
 	/// <summary>
 	/// 作者: Foldcc
@@ -58,7 +58,7 @@ namespace Script
 
 		}
 
-		void OnGUI(){
+		private void OnGUI(){
 			levelText.text = "Level: " + gameLevel;
 			enemyCountText.text ="Enemy: " + enemyCount;
 			playerHpText.text ="HP: " + playerHp;
